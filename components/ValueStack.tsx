@@ -80,6 +80,14 @@ export default function ValueStack() {
             </h3>
           </div>
 
+          <Image
+            src="/bundle.png"
+            alt="Everything you get: the main How to Turn I'm Not Interested Into Sales in Nigeria toolkit plus all three bonus guides"
+            width={1280}
+            height={800}
+            className="h-auto w-full"
+          />
+
           <ul className="grid gap-x-6 gap-y-3 px-6 py-7 sm:grid-cols-2 sm:px-10">
             {everything.map((item) => (
               <li key={item} className="flex items-start gap-2.5 text-white/80">
