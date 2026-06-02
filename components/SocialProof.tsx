@@ -53,7 +53,7 @@ export default function SocialProof() {
             <p className="text-sm font-bold uppercase tracking-[0.3em] text-black/70">
               Real results
             </p>
-            <h2 className="mt-3 font-display text-3xl uppercase leading-tight sm:text-5xl">
+            <h2 className="mt-3 font-display text-3xl/snug uppercase sm:text-5xl/snug">
               Sellers Across Nigeria Are Already Closing More
             </h2>
             <p className="mt-4 max-w-xl text-lg font-medium text-black/80">

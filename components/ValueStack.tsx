@@ -42,7 +42,7 @@ export default function ValueStack() {
         <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-gold">
           Pay today &amp; also get these free
         </p>
-        <h2 className="mx-auto mt-4 max-w-3xl text-center font-display text-3xl uppercase leading-tight text-white sm:text-5xl">
+        <h2 className="mx-auto mt-4 max-w-3xl text-center font-display text-3xl/snug uppercase text-white sm:text-5xl/snug">
           3 Free Bonuses <span className="text-gold">Worth ₦12,000</span>
         </h2>
 
@@ -64,7 +64,7 @@ export default function ValueStack() {
                       <h3 className="font-display text-lg uppercase text-white">{b.title}</h3>
                       <span className="text-sm font-semibold text-gold">(Worth {b.worth})</span>
                     </div>
-                    <p className="mt-1 text-sm text-white/60">{b.so}</p>
+                    <p className="mt-1 text-sm text-white/80">{b.so}</p>
                   </div>
                 </div>
               </li>
@@ -109,26 +109,26 @@ export default function ValueStack() {
 
           {/* Price anchor */}
           <div className="border-t border-white/10 bg-black/40 px-6 py-8 text-center sm:px-10">
-            <p className="text-white/60">
+            <p className="text-white/80">
               Toolkit ({TOOLKIT_VALUE}) + Bonuses (₦12,000) ={" "}
               <span className="font-semibold text-white">total value {ANCHOR}</span>
             </p>
-            <p className="mt-3 text-lg text-white/50">
+            <p className="mt-3 text-lg text-white/75">
               You won&rsquo;t pay {ANCHOR}. You won&rsquo;t even pay {TOOLKIT_VALUE}.
             </p>
             <div className="mt-4 flex items-end justify-center gap-4">
-              <span className="font-display text-3xl text-white/40 line-through decoration-brand decoration-4">
+              <span className="font-display text-3xl text-white/70 line-through decoration-brand decoration-4">
                 {ANCHOR}
               </span>
               <span className="font-display text-6xl leading-none text-brand sm:text-7xl">
                 {PRICE}
               </span>
             </div>
-            <p className="mt-2 text-sm uppercase tracking-widest text-white/50">
+            <p className="mt-2 text-sm uppercase tracking-widest text-white/75">
               One-time payment &middot; Instant digital download
             </p>
 
-            <p className="mx-auto mt-6 max-w-md text-[15px] leading-relaxed text-white/55">
+            <p className="mx-auto mt-6 max-w-md text-[15px] leading-relaxed text-white/75">
               Why {PRICE} and not {ANCHOR}? Because a script you cannot afford closes zero
               sales. I would rather you grab it today, use it tonight, and tell three fellow
               sellers tomorrow.

@@ -19,9 +19,9 @@ export default function Hero() {
               <Zap className="h-3.5 w-3.5" /> Built for selling in Nigerian DMs
             </div>
 
-            <h1 className="font-display text-4xl uppercase leading-[1.02] text-white sm:text-6xl lg:text-7xl">
+            <h1 className="font-display text-4xl/snug uppercase text-white sm:text-6xl/snug lg:text-7xl/snug">
               Turn{" "}
-              <span className="text-white/50">&ldquo;I&rsquo;m Not Interested&rdquo;</span>{" "}
+              <span className="text-white/75">&ldquo;I&rsquo;m Not Interested&rdquo;</span>{" "}
               Into <span className="text-brand">&ldquo;I&rsquo;ve Sent The Money.&rdquo;</span>
             </h1>
 
@@ -32,7 +32,7 @@ export default function Hero() {
 
             <div className="mt-9 flex flex-col items-center gap-3 lg:items-start">
               <CtaButton big>Get The Scripts</CtaButton>
-              <span className="text-sm text-white/50">
+              <span className="text-sm text-white/75">
                 Instant download. Works on WhatsApp, Instagram &amp; Messenger.
               </span>
             </div>

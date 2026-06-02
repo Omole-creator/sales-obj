@@ -20,7 +20,7 @@ export default function Solution() {
           <p className="text-sm font-bold uppercase tracking-[0.3em] text-black/70">
             Introducing
           </p>
-          <h2 className="mt-3 font-display text-3xl uppercase leading-[1.35] sm:text-5xl">
+          <h2 className="mt-3 font-display text-3xl/snug uppercase sm:text-5xl/snug">
             The Only Toolkit Built For{" "}
             <span className="box-decoration-clone bg-black px-2 text-orange-500">
               Nigerian

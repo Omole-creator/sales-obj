@@ -27,7 +27,7 @@ export default function Agitation() {
         <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-brand">
           Sound familiar?
         </p>
-        <h2 className="mx-auto mt-4 max-w-3xl text-center font-display text-3xl uppercase leading-tight text-white sm:text-5xl">
+        <h2 className="mx-auto mt-4 max-w-3xl text-center font-display text-3xl/snug uppercase text-white sm:text-5xl/snug">
           You Send A Great Pitch. Then&hellip; <span className="text-brand">Silence.</span>
         </h2>
 
@@ -68,7 +68,7 @@ export default function Agitation() {
                       <p className="font-display text-xl uppercase leading-tight text-white sm:text-2xl">
                         &ldquo;{l.quote}&rdquo;
                       </p>
-                      <p className="mt-1.5 text-white/60">{l.sting}</p>
+                      <p className="mt-1.5 text-white/80">{l.sting}</p>
                     </div>
                   </div>
                 </li>

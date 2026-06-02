@@ -50,7 +50,7 @@ export default function Objections() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand">
               The core system
             </p>
-            <h2 className="mt-3 font-display text-3xl uppercase leading-tight text-white sm:text-4xl">
+            <h2 className="mt-3 font-display text-3xl/snug uppercase text-white sm:text-4xl/snug">
               Your Secret Weapon: <span className="text-brand">The A.V.Q. Method</span>
             </h2>
             <p className="mt-4 max-w-xl text-white/70">
@@ -79,10 +79,10 @@ export default function Objections() {
 
         {/* The 5 objections */}
         <div className="mt-20">
-          <h2 className="text-center font-display text-3xl uppercase leading-tight text-white sm:text-4xl">
+          <h2 className="text-center font-display text-3xl/snug uppercase text-white sm:text-4xl/snug">
             The 5 Objections Every Nigerian Seller Faces
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-white/60">
+          <p className="mx-auto mt-3 max-w-2xl text-center text-white/80">
             Different objections need different responses. The toolkit hands you the exact
             script for each one.
           </p>
@@ -99,7 +99,7 @@ export default function Objections() {
                     {o.tag}
                   </span>
                   <p className="mt-2 font-medium text-white">{o.lines}</p>
-                  <p className="mt-1 text-sm text-white/55">
+                  <p className="mt-1 text-sm text-white/75">
                     <span className="text-gold">→</span> {o.decode}
                   </p>
                 </div>

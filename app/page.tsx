@@ -27,7 +27,7 @@ export default function Page() {
       <ValueStack />
       <TapeDivider />
       <FinalCta />
-      <footer className="bg-ink px-5 py-10 text-center text-sm text-white/40">
+      <footer className="bg-ink px-5 py-10 text-center text-sm text-white/70">
         <p>
           &copy; {new Date().getFullYear()} Business Growth Nigeria. All rights reserved.
         </p>

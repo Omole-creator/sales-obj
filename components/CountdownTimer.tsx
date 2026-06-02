@@ -51,12 +51,12 @@ export default function CountdownTimer() {
             <span className="font-display text-3xl leading-none text-brand tabular-nums sm:text-5xl">
               {u.value}
             </span>
-            <span className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-white/60 sm:text-xs">
+            <span className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-white/80 sm:text-xs">
               {u.label}
             </span>
           </div>
           {i < units.length - 1 && (
-            <span className="font-display text-3xl text-black/50 sm:text-4xl">:</span>
+            <span className="font-display text-3xl text-black/75 sm:text-4xl">:</span>
           )}
         </div>
       ))}

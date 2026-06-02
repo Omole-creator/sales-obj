@@ -11,7 +11,7 @@ export default function WhoFor() {
   return (
     <section className="bg-ink px-5 py-20 sm:px-8">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-center font-display text-3xl uppercase leading-tight text-white sm:text-4xl">
+        <h2 className="text-center font-display text-3xl/snug uppercase text-white sm:text-4xl/snug">
           This Toolkit Is Made For You If You&rsquo;re&hellip;
         </h2>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -24,7 +24,7 @@ export default function WhoFor() {
                 {a.emoji}
               </span>
               <h3 className="mt-3 font-display text-lg uppercase text-white">{a.label}</h3>
-              <p className="mt-1 text-sm text-white/55">{a.note}</p>
+              <p className="mt-1 text-sm text-white/75">{a.note}</p>
             </div>
           ))}
         </div>

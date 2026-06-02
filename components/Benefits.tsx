@@ -38,7 +38,7 @@ export default function Benefits() {
         <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-brand">
           What&rsquo;s inside
         </p>
-        <h2 className="mx-auto mt-4 max-w-3xl text-center font-display text-3xl uppercase leading-tight text-white sm:text-5xl">
+        <h2 className="mx-auto mt-4 max-w-3xl text-center font-display text-3xl/snug uppercase text-white sm:text-5xl/snug">
           Everything You Need To Hear <span className="text-brand">&ldquo;Yes&rdquo;</span> More Often
         </h2>
 
@@ -55,7 +55,7 @@ export default function Benefits() {
                 <h3 className="font-display text-lg uppercase tracking-wide text-white sm:text-xl">
                   {b.title}
                 </h3>
-                <p className="mt-1 text-white/60">{b.so}</p>
+                <p className="mt-1 text-white/80">{b.so}</p>
               </div>
             </li>
           ))}

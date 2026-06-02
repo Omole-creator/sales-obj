@@ -12,7 +12,7 @@ export default function FinalCta() {
           <Clock className="h-3.5 w-3.5" /> Special price ends soon
         </div>
 
-        <h2 className="mt-6 font-display text-4xl uppercase leading-[0.95] sm:text-6xl">
+        <h2 className="mt-6 font-display text-4xl/snug uppercase sm:text-6xl/snug">
           Your Next Customer Is Already Typing.
           <span className="block text-black/70">Know What To Say Back.</span>
         </h2>
