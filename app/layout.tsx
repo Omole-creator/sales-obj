@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Anton, Plus_Jakarta_Sans } from "next/font/google";
+import FacebookPixel from "@/components/FacebookPixel";
 import "./globals.css";
 
 const display = Anton({
@@ -62,7 +63,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body className="bg-ink font-sans text-white antialiased">{children}</body>
+      <body className="bg-ink font-sans text-white antialiased">
+        <FacebookPixel />
+        {children}
+      </body>
     </html>
   );
 }

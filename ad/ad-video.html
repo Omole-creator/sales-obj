@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ad Video — The Silent Chat (screen-record this)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --brand: #FF4500;
+    --ink: #0a0a0a;
+    --bubble-in: #20242b;
+    --bubble-out: #FF4500;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    overflow: hidden;
+  }
+
+  /* 9:16 recording stage. Record THIS column. */
+  .stage {
+    position: relative;
+    height: 100vh;
+    aspect-ratio: 9 / 16;
+    background:
+      radial-gradient(120% 60% at 70% 8%, rgba(255,69,0,0.22), transparent 60%),
+      var(--ink);
+    overflow: hidden;
+    color: #fff;
+  }
+
+  /* film grain */
+  .stage::after {
+    content: "";
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- PHONE ---------- */
+  .phone-wrap {
+    position: absolute;
+    top: 7%; left: 50%; transform: translateX(-50%);
+    width: 64%;
+    transition: filter .6s ease, transform .6s ease, opacity .6s ease;
+  }
+  /* dim during the "it's not your product" reframe, refocus on cursor */
+  .stage.p-reframe:not(.p-cursor) .phone-wrap { filter: brightness(0.45) saturate(0.7); transform: translateX(-50%) scale(0.97); }
+  .stage.p-cta .phone-wrap { transform: translateX(-50%) translateY(-6%) scale(0.96); opacity: .25; }
+
+  .phone {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 19;
+    background: #0e1116;
+    border: 6px solid #1c1f26;
+    border-radius: 38px;
+    box-shadow: 0 30px 60px rgba(0,0,0,.6), inset 0 0 0 2px #000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .notch { position:absolute; top:8px; left:50%; transform:translateX(-50%); width:34%; height:18px; background:#000; border-radius:0 0 14px 14px; z-index:3; }
+
+  .phone-head {
+    display:flex; align-items:center; gap:9px;
+    padding: 20px 14px 10px;
+    background: #11151b;
+    border-bottom: 1px solid #00000055;
+  }
+  .avatar { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg,#3a3f47,#23272e); flex:none; }
+  .who { font-size: clamp(10px, 2.6vh, 15px); font-weight: 800; }
+  .status { font-size: clamp(8px, 1.8vh, 11px); color:#8a909a; font-weight:600; }
+
+  .thread {
+    flex: 1;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start;
+  }
+
+  .bubble {
+    max-width: 78%;
+    padding: 9px 12px;
+    font-size: clamp(11px, 2.5vh, 16px);
+    font-weight: 600;
+    line-height: 1.25;
+    border-radius: 16px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .35s ease, transform .35s ease;
+  }
+  .bubble .time { display:block; font-size: 0.72em; opacity:.6; font-weight:600; margin-top:3px; }
+  .out { align-self: flex-end; background: var(--bubble-out); color:#000; border-bottom-right-radius: 5px; }
+  .in  { align-self: flex-start; background: var(--bubble-in); color:#fff; border-bottom-left-radius: 5px; }
+
+  /* reveal rules (cumulative phase classes) */
+  .stage .b-price { opacity: 1; transform: none; }            /* visible from start */
+  .stage.p-ghost  .b-ghost  { opacity: 1; transform: none; }
+  .stage.p-reply  .b-reply  { opacity: 1; transform: none; }
+  .stage.p-reply  .b-yes    { opacity: 1; transform: none; }
+
+  /* typing indicator */
+  .typing {
+    align-self: flex-start;
+    display: inline-flex; gap: 5px; align-items:center;
+    background: var(--bubble-in); padding: 11px 14px; border-radius: 16px; border-bottom-left-radius:5px;
+    transition: opacity .3s ease;
+  }
+  .typing span { width: 7px; height: 7px; border-radius: 50%; background:#9aa0aa; animation: blink 1.2s infinite both; }
+  .typing span:nth-child(2){ animation-delay:.2s } .typing span:nth-child(3){ animation-delay:.4s }
+  @keyframes blink { 0%,80%,100%{opacity:.25; transform:translateY(0)} 40%{opacity:1; transform:translateY(-3px)} }
+  .stage.p-silence .typing { opacity: 0; }   /* the silence */
+
+  /* composer / blinking cursor */
+  .composer {
+    margin-top: auto;
+    display:flex; align-items:center; gap:8px;
+    padding: 9px 12px; background:#11151b; border-top:1px solid #00000055;
+    opacity: 0; transition: opacity .4s ease;
+  }
+  .stage.p-cursor .composer { opacity: 1; }
+  .input { flex:1; background:#1b1f26; border-radius: 18px; padding: 9px 12px; font-size: clamp(10px,2.2vh,14px); color:#cfd3da; }
+  .caret { display:inline-block; width:2px; height:1.05em; background: var(--brand); margin-left:1px; vertical-align:-2px; animation: caret 1s steps(1) infinite; }
+  @keyframes caret { 50%{opacity:0} }
+  .send { width: 30px; height:30px; border-radius:50%; background: var(--brand); flex:none; display:grid; place-items:center; color:#000; font-weight:900; }
+
+  /* green payment check on reply */
+  .check {
+    position: absolute; right: 12px; bottom: 84px;
+    background:#16a34a; color:#fff; font-weight:800; font-size: clamp(10px,2.2vh,14px);
+    padding: 6px 11px; border-radius: 999px;
+    display:flex; align-items:center; gap:6px;
+    opacity:0; transform: scale(.6) translateY(8px);
+    transition: opacity .4s ease, transform .4s cubic-bezier(.18,1.4,.4,1);
+    box-shadow: 0 8px 20px rgba(22,163,74,.5);
+  }
+  .stage.p-reply .check { opacity:1; transform: scale(1) translateY(0); }
+
+  /* ---------- CAPTIONS ---------- */
+  .caption {
+    position: absolute;
+    left: 6%; right: 6%; bottom: 13%;
+    text-align: center;
+    font-weight: 800;
+    font-size: clamp(22px, 4.6vh, 46px);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    text-shadow: 0 3px 18px rgba(0,0,0,.85);
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+  .caption.show { opacity: 1; animation: capPop .4s ease both; }
+  .caption b, .caption .hl { color: var(--brand); }
+  @keyframes capPop { from { transform: translateY(10px); opacity:0 } to { transform: none; opacity:1 } }
+
+  /* ---------- CTA ---------- */
+  .cta {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 26px; text-align:center; padding: 0 8%;
+    opacity: 0; pointer-events: none;
+    transition: opacity .5s ease;
+  }
+  .stage.p-cta .cta { opacity: 1; }
+  .cta h2 {
+    font-family: "Anton", sans-serif; text-transform: uppercase;
+    font-size: clamp(30px, 6.4vh, 64px); line-height: .98;
+  }
+  .cta h2 .hl { color: var(--brand); }
+  .cta-btn {
+    font-family:"Anton",sans-serif; text-transform:uppercase; letter-spacing:.02em;
+    background: var(--brand); color:#000; padding: 16px 34px; border-radius: 14px;
+    font-size: clamp(20px, 3.6vh, 34px);
+    box-shadow: 0 0 0 0 rgba(255,69,0,.6);
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{ transform: scale(1); box-shadow:0 0 0 0 rgba(255,69,0,.6)} 50%{ transform: scale(1.05); box-shadow:0 0 0 22px rgba(255,69,0,0)} }
+  .arrow { font-size: clamp(34px, 7vh, 70px); animation: bob 1s ease-in-out infinite; }
+  @keyframes bob { 0%,100%{ transform: translateY(0)} 50%{ transform: translateY(12px)} }
+
+  /* progress + controls */
+  .bar { position:absolute; left:0; bottom:0; height:5px; width:0; background: var(--brand); z-index:5; }
+  .replay {
+    position:absolute; inset:0; display:none; place-items:center; z-index:6;
+    background: rgba(0,0,0,.55);
+  }
+  .replay.show { display:grid; }
+  .replay button {
+    font-family:"Anton",sans-serif; text-transform:uppercase; cursor:pointer;
+    background:#fff; color:#000; border:0; padding:14px 30px; border-radius:12px; font-size:24px;
+  }
+  .hint { position: fixed; top: 10px; left: 12px; font-size: 12px; color:#666; font-family: monospace; z-index: 10; }
+</style>
+</head>
+<body>
+  <div class="hint">Record the centered 9:16 column · press R to replay</div>
+
+  <div class="stage" id="stage">
+    <!-- PHONE -->
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="phone-head">
+          <div class="avatar"></div>
+          <div>
+            <div class="who">Customer</div>
+            <div class="status" id="status">online</div>
+          </div>
+        </div>
+        <div class="thread">
+          <div class="bubble out b-price">The price is ₦5,000 💼<span class="time">12:04 ✓✓</span></div>
+          <div class="typing" id="typing"><span></span><span></span><span></span></div>
+          <div class="bubble in b-ghost">I&rsquo;ll get back to you 👍<span class="time">12:05</span></div>
+          <div class="bubble out b-reply">Totally get it 🙂 Quick question before you go&hellip;<span class="time">12:06 ✓✓</span></div>
+          <div class="bubble in b-yes">Okay, I&rsquo;m listening 👀<span class="time">12:06</span></div>
+        </div>
+        <div class="composer">
+          <div class="input" id="inputline">Type a message<span class="caret"></span></div>
+          <div class="send">➤</div>
+        </div>
+        <div class="check">✓ Lead revived</div>
+      </div>
+    </div>
+
+    <!-- CAPTIONS -->
+    <div class="caption" id="caption"></div>
+
+    <!-- CTA SCENE -->
+    <div class="cta">
+      <h2>For More <span class="hl">Information</span></h2>
+      <div class="arrow">👇</div>
+      <div class="cta-btn">Learn More</div>
+    </div>
+
+    <div class="bar" id="bar"></div>
+    <div class="replay" id="replay"><button onclick="play()">▶ Replay</button></div>
+  </div>
+
+<script>
+  const stage   = document.getElementById('stage');
+  const caption = document.getElementById('caption');
+  const status  = document.getElementById('status');
+  const inputln = document.getElementById('inputline');
+  const bar     = document.getElementById('bar');
+  const replay  = document.getElementById('replay');
+  const TOTAL   = 50; // seconds
+  let timers = [];
+
+  // [time(s), phaseClass|null, captionHTML|null, extra fn]
+  const cues = [
+    [0.2,  null,        'Sent the price&hellip; <b>then nothing?</b>'],
+    [2.2,  'p-silence', null,        () => status.textContent = 'last seen recently'],
+    [3.0,  'p-ghost',   'And &ldquo;I&rsquo;ll get back to you&rdquo;<br><b>never comes back.</b>'],
+    [11.0, 'p-reframe', 'It&rsquo;s <span class="hl">NOT</span> your product.<br>It&rsquo;s <span class="hl">NOT</span> your price.'],
+    [22.0, 'p-cursor',  'Nobody taught you<br><b>what to say next.</b>', () => status.textContent = 'typing…'],
+    [33.0, 'p-reply',   '<b>There&rsquo;s an exact reply</b><br>for that.', () => status.textContent = 'online'],
+    [43.0, 'p-cta',     'For more information,<br><b>click the button below 👇</b>'],
+    [50.0, 'p-end',     null,        () => { caption.classList.remove('show'); replay.classList.add('show'); }],
+  ];
+
+  function clearAll() {
+    timers.forEach(clearTimeout); timers = [];
+    ['p-silence','p-ghost','p-reframe','p-cursor','p-reply','p-cta','p-end']
+      .forEach(c => stage.classList.remove(c));
+    caption.classList.remove('show'); caption.innerHTML = '';
+    replay.classList.remove('show');
+    status.textContent = 'online';
+    inputln.innerHTML = 'Type a message<span class="caret"></span>';
+    bar.style.transition = 'none'; bar.style.width = '0%';
+  }
+
+  function setCaption(html) {
+    if (!html) return;
+    caption.classList.remove('show');
+    void caption.offsetWidth;      // restart animation
+    caption.innerHTML = html;
+    caption.classList.add('show');
+  }
+
+  function play() {
+    clearAll();
+    // progress bar
+    requestAnimationFrame(() => {
+      bar.style.transition = `width ${TOTAL}s linear`;
+      bar.style.width = '100%';
+    });
+    cues.forEach(([t, phase, cap, extra]) => {
+      timers.push(setTimeout(() => {
+        if (phase) stage.classList.add(phase);
+        if (cap)   setCaption(cap);
+        if (extra) extra();
+      }, t * 1000));
+    });
+  }
+
+  document.addEventListener('keydown', e => { if (e.key.toLowerCase() === 'r') play(); });
+  window.addEventListener('load', () => setTimeout(play, 600));
+</script>
+</body>
+</html>
