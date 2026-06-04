@@ -27,7 +27,7 @@ const objections = [
   { n: "1", tag: "Price", lines: '"It\'s too expensive" / "My budget is small"', decode: "They haven't seen the value yet." },
   { n: "2", tag: "Timing", lines: '"Not now" / "Let me think about it"', decode: "They're interested, just not confident yet." },
   { n: "3", tag: "Trust", lines: '"I don\'t know you" / "Is this real?"', decode: "They need proof, not more pitching." },
-  { n: "4", tag: "Indifference", lines: '"I\'m not interested" / silent ghosting', decode: "They don't see how it solves their problem." },
+  { n: "4", tag: "Indifference", lines: '"I\'m good, thanks" / silent ghosting', decode: "They don't see how it solves their problem." },
   { n: "5", tag: "Comparison", lines: '"Someone else is cheaper"', decode: "They need a reason to choose YOU." },
 ];
 

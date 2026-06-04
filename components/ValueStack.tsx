@@ -4,7 +4,7 @@ import CtaButton from "./CtaButton";
 import { PRICE, ANCHOR, TOOLKIT_VALUE } from "@/lib/config";
 
 const everything = [
-  "What “I'm Not Interested” really means (Module 1)",
+  "What “Let Me Get Back to You” really means (Module 1)",
   "The 5 objection types + how to identify them",
   "The A.V.Q. Method explained + examples",
   "WhatsApp reply scripts (multiple scenarios)",
@@ -82,7 +82,7 @@ export default function ValueStack() {
 
           <Image
             src="/bundle.png"
-            alt="Everything you get: the main How to Turn I'm Not Interested Into Sales in Nigeria toolkit plus all three bonus guides"
+            alt="Everything you get: the main How to Turn Let Me Get Back to You Into Sales in Nigeria toolkit plus all three bonus guides"
             width={1280}
             height={800}
             className="h-auto w-full"

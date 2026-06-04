@@ -19,7 +19,7 @@ const body = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://im-not-interested.vercel.app"),
   title:
-    'How to Turn "I\'m Not Interested" Into Sales in Nigeria | Sales Scripts Toolkit',
+    'How to Turn "Let Me Get Back to You" Into Sales in Nigeria | Sales Scripts Toolkit',
   description:
     "Word-for-word WhatsApp & Instagram DM sales scripts for Nigerian sellers. Turn objections like 'price is too high' and 'I'll get back to you' into closed sales and credit alerts. Instant download for ₦5,000.",
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Business Growth Nigeria" }],
   openGraph: {
-    title: 'Turn "I\'m Not Interested" Into Sales in Nigeria',
+    title: 'Turn "Let Me Get Back to You" Into Sales in Nigeria',
     description:
       "The done-for-you toolkit of WhatsApp & IG scripts that turns cold rejections into credit alerts. Just ₦5,000 with instant download.",
     type: "website",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: 'Turn "I\'m Not Interested" Into Sales in Nigeria',
+    title: 'Turn "Let Me Get Back to You" Into Sales in Nigeria',
     description:
       "WhatsApp & IG sales scripts built for how Nigerians actually buy. ₦5,000.",
     images: ["/mainbook.png"],

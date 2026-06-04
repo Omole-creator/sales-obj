@@ -47,7 +47,7 @@ export default function CountdownTimer() {
     >
       {units.map((u, i) => (
         <div key={u.label} className="flex items-center gap-3 sm:gap-4">
-          <div className="flex min-w-[68px] flex-col items-center rounded-xl border-2 border-black/30 bg-black px-3 py-2 sm:min-w-[84px] sm:px-4 sm:py-3">
+          <div className="flex min-w-[68px] flex-col items-center rounded-xl border border-white/15 bg-black px-3 py-2 sm:min-w-[84px] sm:px-4 sm:py-3">
             <span className="font-display text-3xl leading-none text-brand tabular-nums sm:text-5xl">
               {u.value}
             </span>
@@ -56,7 +56,7 @@ export default function CountdownTimer() {
             </span>
           </div>
           {i < units.length - 1 && (
-            <span className="font-display text-3xl text-black/75 sm:text-4xl">:</span>
+            <span className="font-display text-3xl text-white/40 sm:text-4xl">:</span>
           )}
         </div>
       ))}

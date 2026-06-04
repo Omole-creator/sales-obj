@@ -32,7 +32,7 @@ export default function Page() {
           &copy; {new Date().getFullYear()} Business Growth Nigeria. All rights reserved.
         </p>
         <p className="mt-1">
-          How to Turn &ldquo;I&rsquo;m Not Interested&rdquo; Into Sales in Nigeria.
+          How to Turn &ldquo;Let Me Get Back to You&rdquo; Into Sales in Nigeria.
         </p>
       </footer>
     </main>

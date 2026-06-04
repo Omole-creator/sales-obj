@@ -30,8 +30,8 @@ body {
 .tape {
   background-image: repeating-linear-gradient(
     -45deg,
-    #ff4500 0,
-    #ff4500 22px,
+    #f5b301 0,
+    #f5b301 22px,
     #0a0a0a 22px,
     #0a0a0a 44px
   );

@@ -53,15 +53,15 @@ test.describe("Sales page QA", () => {
     }
   });
 
-  // 4. Theme: the primary CTA background is the correct vibrant orange (#FF4500).
-  test("primary CTA background is #FF4500 (rgb(255, 69, 0))", async ({ page }) => {
+  // 4. Theme: the primary CTA background is the correct money-green (#16A34A).
+  test("primary CTA background is #16A34A (rgb(22, 163, 74))", async ({ page }) => {
     const primary = page.locator('[data-testid="cta"][data-variant="primary"]').first();
     await expect(primary).toBeVisible();
 
     const bg = await primary.evaluate(
       (el) => getComputedStyle(el).backgroundColor,
     );
-    expect(bg).toBe("rgb(255, 69, 0)");
+    expect(bg).toBe("rgb(22, 163, 74)");
   });
 });
 

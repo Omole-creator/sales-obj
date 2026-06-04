@@ -23,4 +23,4 @@ export const COUNTDOWN_HOURS = 24;
 export const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID || "1897516267555090";
 
 export const PRODUCT_NAME =
-  'How to Turn "I\'m Not Interested" Into Sales in Nigeria';
+  'How to Turn "Let Me Get Back to You" Into Sales in Nigeria';

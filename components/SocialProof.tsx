@@ -38,7 +38,7 @@ function Stars() {
   return (
     <div className="flex gap-0.5" aria-label="5 out of 5 stars">
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} className="h-4 w-4 fill-black text-black" aria-hidden />
+        <Star key={i} className="h-4 w-4 fill-gold text-gold" aria-hidden />
       ))}
     </div>
   );
@@ -46,17 +46,17 @@ function Stars() {
 
 export default function SocialProof() {
   return (
-    <section className="relative overflow-hidden bg-orange-600 px-5 py-20 text-black sm:px-8">
+    <section className="noise-overlay relative overflow-hidden bg-ink px-5 py-20 sm:px-8">
       <div className="relative mx-auto max-w-6xl">
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.3em] text-black/70">
+            <p className="text-sm font-bold uppercase tracking-[0.3em] text-gold">
               Real results
             </p>
-            <h2 className="mt-3 font-display text-3xl/snug uppercase sm:text-5xl/snug">
+            <h2 className="mt-3 font-display text-3xl/snug uppercase text-white sm:text-5xl/snug">
               Sellers Across Nigeria Are Already Closing More
             </h2>
-            <p className="mt-4 max-w-xl text-lg font-medium text-black/80">
+            <p className="mt-4 max-w-xl text-lg font-medium text-white/80">
               When you finally know what to say, the &ldquo;maybes&rdquo; turn into credit
               alerts. Here&rsquo;s what your fellow vendors are seeing.
             </p>
@@ -66,7 +66,7 @@ export default function SocialProof() {
             alt="Sales climbing after using the toolkit"
             width={200}
             height={200}
-            className="mx-auto h-40 w-40 rounded-2xl border-4 border-black object-cover shadow-xl sm:h-48 sm:w-48"
+            className="mx-auto h-40 w-40 rounded-2xl border border-white/10 object-cover shadow-xl sm:h-48 sm:w-48"
           />
         </div>
 
@@ -74,16 +74,16 @@ export default function SocialProof() {
           {reviews.map((r) => (
             <figure
               key={r.name}
-              className="flex flex-col rounded-2xl border-2 border-black bg-white p-6 shadow-[6px_6px_0_0_#000]"
+              className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6"
             >
-              <Quote className="h-8 w-8 text-brand" aria-hidden />
+              <Quote className="h-8 w-8 text-gold" aria-hidden />
               <Stars />
-              <blockquote className="mt-3 flex-1 text-[15px] leading-relaxed text-black/80">
+              <blockquote className="mt-3 flex-1 text-[15px] leading-relaxed text-white/80">
                 &ldquo;{r.text}&rdquo;
               </blockquote>
-              <figcaption className="mt-4 border-t border-black/10 pt-3">
-                <span className="font-display text-lg uppercase leading-none">{r.name}</span>
-                <span className="block text-sm text-black/60">{r.role}</span>
+              <figcaption className="mt-4 border-t border-white/10 pt-3">
+                <span className="font-display text-lg uppercase leading-none text-white">{r.name}</span>
+                <span className="block text-sm text-white/60">{r.role}</span>
               </figcaption>
             </figure>
           ))}

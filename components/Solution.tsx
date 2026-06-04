@@ -3,7 +3,7 @@ import CtaButton from "./CtaButton";
 
 export default function Solution() {
   return (
-    <section className="relative overflow-hidden bg-orange-600 px-5 py-20 text-black sm:px-8">
+    <section className="relative overflow-hidden bg-gold px-5 py-20 text-black sm:px-8">
       <div aria-hidden className="absolute inset-0 opacity-10 mix-blend-multiply tape" />
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
         <div className="order-2 mx-auto w-full max-w-xs lg:order-1">
@@ -22,7 +22,7 @@ export default function Solution() {
           </p>
           <h2 className="mt-3 font-display text-3xl/snug uppercase sm:text-5xl/snug">
             The Only Toolkit Built For{" "}
-            <span className="box-decoration-clone bg-black px-2 text-orange-500">
+            <span className="box-decoration-clone bg-black px-2 text-brand">
               Nigerian
             </span>{" "}
             Sales Conversations

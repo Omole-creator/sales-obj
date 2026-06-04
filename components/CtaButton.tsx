@@ -3,11 +3,13 @@ import { PAYMENT_URL } from "@/lib/config";
 
 type Props = {
   children: React.ReactNode;
-  /** Visual emphasis. "primary" = vibrant orange (#FF4500), tested by Playwright. */
+  /** Visual emphasis. "primary" = money-green (#16A34A), tested by Playwright. */
   variant?: "primary" | "ghost";
   /** Slightly larger hit-area for hero / final CTAs. */
   big?: boolean;
   pulse?: boolean;
+  /** Ghost variant on a dark background: white outline instead of black. */
+  light?: boolean;
   className?: string;
 };
 
@@ -16,6 +18,7 @@ export default function CtaButton({
   variant = "primary",
   big = false,
   pulse = true,
+  light = false,
   className = "",
 }: Props) {
   const base =
@@ -27,8 +30,10 @@ export default function CtaButton({
 
   const look =
     variant === "primary"
-      ? "bg-brand text-black shadow-[0_10px_30px_-8px_rgba(255,69,0,0.7)] hover:bg-brand-dark"
-      : "border-2 border-black/80 bg-transparent text-black hover:bg-black hover:text-white";
+      ? "bg-brand text-black shadow-[0_10px_30px_-8px_rgba(22,163,74,0.7)] hover:bg-brand-dark"
+      : light
+        ? "border-2 border-white/50 bg-transparent text-white hover:bg-white hover:text-black"
+        : "border-2 border-black/80 bg-transparent text-black hover:bg-black hover:text-white";
 
   const motion = pulse && variant === "primary" ? "animate-cta-pulse" : "";
 

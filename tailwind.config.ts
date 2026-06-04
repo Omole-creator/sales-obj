@@ -8,13 +8,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Vibrant Orange, the primary CTA accent. The Playwright theme test
-        // asserts this exact value (rgb(255, 69, 0)).
+        // Money-green, the primary CTA / action accent (signals "go" + money).
+        // The Playwright theme test asserts this exact value (rgb(22, 163, 74)).
         brand: {
-          DEFAULT: "#FF4500",
-          dark: "#E03C00",
+          DEFAULT: "#16A34A",
+          dark: "#15803D",
         },
-        // Gold pulled from the ebook cover, used for premium accents/underlines.
+        // Gold pulled from the ebook cover. Now the dominant authority/wealth
+        // accent: eyebrows, highlights, and the full-bleed "punch" sections.
         gold: {
           DEFAULT: "#F5B301",
           soft: "#FFD45E",
@@ -27,8 +28,8 @@ const config: Config = {
       },
       keyframes: {
         "cta-pulse": {
-          "0%, 100%": { transform: "scale(1)", boxShadow: "0 0 0 0 rgba(255,69,0,0.55)" },
-          "50%": { transform: "scale(1.03)", boxShadow: "0 0 0 18px rgba(255,69,0,0)" },
+          "0%, 100%": { transform: "scale(1)", boxShadow: "0 0 0 0 rgba(22,163,74,0.55)" },
+          "50%": { transform: "scale(1.03)", boxShadow: "0 0 0 18px rgba(22,163,74,0)" },
         },
         "rise": {
           "0%": { opacity: "0", transform: "translateY(28px)" },

@@ -3,6 +3,10 @@ import { X } from "lucide-react";
 
 const lies = [
   {
+    quote: "Let me get back to you.",
+    sting: "…and you wait. And wait. The reply never comes, and you are too proud to chase.",
+  },
+  {
     quote: "The price is too high.",
     sting: "…and your mind goes blank. You drop the price, or you drop the customer.",
   },
@@ -14,16 +18,32 @@ const lies = [
     quote: "Send your account, I'll pay later.",
     sting: "…and later never comes. The money you already counted disappears.",
   },
-  {
-    quote: "I'll get back to you.",
-    sting: "…so you follow up once, then twice, and now you sound desperate.",
-  },
 ];
 
 export default function Agitation() {
   return (
     <section className="relative overflow-hidden bg-ink px-5 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
+        {/* Letter-style lead: personal, direct, sets up the agitation. */}
+        <div className="mx-auto mb-16 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl">
+          <p className="font-display text-xl uppercase tracking-wide text-gold">
+            Dear business owner,
+          </p>
+          <p className="mt-4">
+            Ever watched a hot customer go cold the second you sent your price? Read this
+            slowly.
+          </p>
+          <p className="mt-4">
+            That one silent chat is not small. Now multiply it by every{" "}
+            <span className="text-white">&ldquo;let me get back to you&rdquo;</span> you got
+            this month.
+          </p>
+          <p className="mt-4">
+            That is &#8358;80,000, sometimes &#8358;150,000, walking out of your DMs and
+            straight to a competitor.
+          </p>
+        </div>
+
         <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-brand">
           Sound familiar?
         </p>
