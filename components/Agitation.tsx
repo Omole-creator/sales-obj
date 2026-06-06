@@ -56,10 +56,10 @@ export default function Agitation() {
           <div className="relative">
             <div className="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
               <Image
-                src="/sadw.jpg"
+                src="/woman.jpg"
                 alt="A frustrated Nigerian business owner staring at her phone, waiting for a reply that never comes"
-                width={640}
-                height={420}
+                width={1500}
+                height={1000}
                 className="h-auto w-full object-cover"
               />
             </div>

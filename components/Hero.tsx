@@ -53,12 +53,12 @@ export default function Hero() {
           <div className="animate-rise relative mx-auto w-full max-w-sm" style={{ animationDelay: "0.12s" }}>
             <div aria-hidden className="absolute inset-0 -z-10 translate-y-6 scale-95 bg-brand/30 blur-3xl" />
             <Image
-              src="/mainbook.png"
-              alt="3D cover of the toolkit: How to Turn Let Me Get Back to You Into Sales in Nigeria"
-              width={520}
-              height={680}
+              src="/man.png"
+              alt="Nigerian business owner closing a sale with confidence on his phone"
+              width={837}
+              height={1108}
               priority
-              className="mx-auto h-auto w-full drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]"
+              className="mx-auto h-auto w-full rounded-2xl drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]"
             />
           </div>
         </div>
