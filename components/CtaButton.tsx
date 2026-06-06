@@ -11,6 +11,15 @@ type Props = {
   /** Ghost variant on a dark background: white outline instead of black. */
   light?: boolean;
   className?: string;
+  /**
+   * Destination. Defaults to the Selar checkout (PAYMENT_URL).
+   * Pass an in-page anchor like "#offer" for EARLY CTAs (shown before the price
+   * is ever revealed) so a not-yet-sold visitor scrolls to the offer instead of
+   * being dumped straight onto a payment page. Anchor links are treated as
+   * navigation: they do NOT emit data-testid="cta", so they neither fire the
+   * Meta InitiateCheckout event nor get asserted by the checkout E2E test.
+   */
+  href?: string;
 };
 
 export default function CtaButton({
@@ -20,7 +29,11 @@ export default function CtaButton({
   pulse = true,
   light = false,
   className = "",
+  href = PAYMENT_URL,
 }: Props) {
+  // In-page anchors (e.g. "#offer") are navigation, not checkout.
+  const isCheckout = !href.startsWith("#");
+
   const base =
     "group inline-flex w-full items-center justify-center gap-2 rounded-xl font-display uppercase tracking-wide transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 sm:w-auto";
 
@@ -39,8 +52,8 @@ export default function CtaButton({
 
   return (
     <a
-      href={PAYMENT_URL}
-      data-testid="cta"
+      href={href}
+      {...(isCheckout ? { "data-testid": "cta" } : {})}
       data-variant={variant}
       className={`${base} ${size} ${look} ${motion} ${className}`}
     >

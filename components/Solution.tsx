@@ -40,7 +40,7 @@ export default function Solution() {
           </p>
 
           <div className="mt-9 flex justify-center lg:justify-start">
-            <CtaButton variant="ghost" pulse={false}>
+            <CtaButton variant="ghost" pulse={false} href="#offer">
               Yes, I Want The Toolkit
             </CtaButton>
           </div>

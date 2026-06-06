@@ -1,12 +1,15 @@
 import { test, expect } from "@playwright/test";
 
+// Must match the filenames actually rendered on the page (see public/).
 const IMAGES = [
-  "mainbook.png",
-  "sadw.jpg",
-  "sadd.jpg",
-  "objj.jpg",
-  "salesin.jpg",
-  "3book.jpg",
+  "man.png", // Hero cover
+  "woman.jpg", // Agitation
+  "sadd.jpg", // Agitation
+  "mainbook.png", // Solution
+  "objj.jpg", // Objections
+  "salesin.jpg", // SocialProof
+  "3book.jpg", // ValueStack bonuses
+  "bundle.png", // ValueStack full stack
 ];
 
 test.beforeEach(async ({ page }) => {

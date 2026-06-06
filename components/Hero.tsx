@@ -42,7 +42,7 @@ export default function Hero() {
             </p>
 
             <div className="mt-9 flex flex-col items-center gap-3 lg:items-start">
-              <CtaButton big>Get The Scripts</CtaButton>
+              <CtaButton big href="#offer">Get The Scripts</CtaButton>
               <span className="text-sm text-white/75">
                 Instant download. Works on WhatsApp, Instagram &amp; Messenger.
               </span>
