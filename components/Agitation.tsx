@@ -53,7 +53,7 @@ export default function Agitation() {
 
         <div className="mt-14 grid items-center gap-12 lg:grid-cols-2">
           {/* Pain images */}
-          <div className="relative">
+          <div className="relative lg:order-2">
             <div className="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
               <Image
                 src="/woman.jpg"
@@ -63,7 +63,7 @@ export default function Agitation() {
                 className="h-auto w-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-8 -right-2 w-40 overflow-hidden rounded-xl border-2 border-brand shadow-xl sm:w-52">
+            <div className="absolute -bottom-8 -left-2 w-40 overflow-hidden rounded-xl border-2 border-brand shadow-xl sm:w-52">
               <Image
                 src="/sadd.jpg"
                 alt="A discouraged seller who has run out of things to say"
@@ -75,7 +75,7 @@ export default function Agitation() {
           </div>
 
           {/* The lies */}
-          <div>
+          <div className="lg:order-1">
             <ul className="space-y-5">
               {lies.map((l) => (
                 <li
